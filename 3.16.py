@@ -10,6 +10,8 @@ numbers = list(map(int, input().split()))
 FLargest = -1
 SLargest = -1
 
+
+# This runs in an infinite loop, as values is not defined.   -5 
 for n in values:
    if n > FLargest:
         FLargest = n
