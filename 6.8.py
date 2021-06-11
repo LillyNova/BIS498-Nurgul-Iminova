@@ -7,63 +7,45 @@ Created on Fri Jun 11 18:32:13 2021
 """
 
 
-def number_to_word(num):
-    l = len(num);
-    if (l == 0):
-       print("Empty");
-       return;
-    if (l > 4):
-       print("Length more than 4 is not supported");
-       return;
-       
+def num_word(number):
+    d = { 0 : 'zero', 1 : 'one', 2 : 'two', 3 : 'three', 4 : 'four', 5 : 'five',
+          6 : 'six', 7 : 'seven', 8 : 'eight', 9 : 'nine', 10 : 'ten',
+          11 : 'eleven', 12 : 'twelve', 13 : 'thirteen', 14 : 'fourteen',
+          15 : 'fifteen', 16 : 'sixteen', 17 : 'seventeen', 18 : 'eighteen',
+          19 : 'nineteen', 20 : 'twenty',
+          30 : 'thirty', 40 : 'forty', 50 : 'fifty', 60 : 'sixty',
+          70 : 'seventy', 80 : 'eighty', 90 : 'ninety' }
+    k = 1000
+    m = k * 1000
+    b = m * 1000
+    t = b * 1000
 
-    ones = ["zero", "one", "two", "three", "four", 
-            "five", "six", "seven", "eight", "nine"];
-    twos = ["", "ten", "eleven", "twelve", "thirteen", "fourteen", 
-            "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"];
-    tens = ["", "", "twenty", "thirty", "forty", "fifty", 
-            "sixty", "seventy", "eighty", "ninety"];
-    thou = ["hundred", "thousand"];
+    assert(0 <= number)
 
-    if (l == 1):
-        print(ones[ord(num[0]) - '0']);
-        return;
-    x = 0;
-    while (x < len(num)):
-        if (l >= 3):
-            if (ord(num[x]) - 48 != 0):
-                print(ones[ord(num[x]) - 48],
-                                           end = " ");
-                print(tens[l - 3], end = " ");  
-            l -= 1;
-        else:
-            if (ord(num[x]) - 48 == 1):
-                sum = (ord(num[x]) - 48 +
-                   ord(num[x+1]) - 48);
-                print(twos[sum] , end = " ");
-                return;
+    if (number < 20):
+        return d[number]
 
-            elif (ord(num[x]) - 48 == 2 and
-                ord(num[x + 1]) - 48 == 0):
-                print("twenty", end = " ");
-                return;
-       
-            else:
-                i = ord(num[x]) - 48;
-                if(i > 0):
-                    print(tens[i], end = " ");
-                else:
-                    print("", end = "");
-                x += 1;
-                if(ord(num[x]) - 48 != 0):
-                    print(ones[ord(num[x]) - 48], end = " ");
-        x += 1;
-        
-    digit = input("Number : ")
-    number = digit.split('.')
-    number_to_word(amount_num[0]);
+    if (number < 100):
+        if number % 10 == 0: return d[number]
+        else: return d[number // 10 * 10] + ' ' + d[number % 10]
 
-    if(len(number[1]) == 1):
-            print("and "+ number[1] + '0/100')
-    else:
-            print("and "+ number[1] + '/100')
+    if (number < k):
+        if number % 100 == 0: return d[number // 100] + ' hundred'
+        else: return d[number // 100] + ' hundred ' + num_word(number % 100)
+
+    if (number < m):
+        if number % k == 0: return num_word(number // k) + ' thousand'
+        else: return num_word(number // k) + ' thousand, ' + num_word(number % k)
+    
+amount = input()
+arr = amount.split('.')
+
+
+if len(arr)==2 :
+   print(num_word(int(arr[0])).upper(),"AND",arr[1],"/",10**(len(arr[1])))
+else :
+   print(num_word(int(arr[0])).upper())
+
+
+   
+   
