@@ -5,7 +5,7 @@ Created on Sat Jun  5 19:19:42 2021
 
 @author: nurguliminova
 """
-
+# Don't know why these are here
 first = int(input("First integer:\t"))
 final = int(input("Final integer:\t"))
 
@@ -15,7 +15,7 @@ for number in range (0,6):
     
 print ('\nsquare')
 
-
+# You never call this function   -5
 def printTable(first,final):
     result = 1
     for x in range(first, final):

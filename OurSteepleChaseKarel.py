@@ -7,7 +7,7 @@ Karel runs a steeple chase the is 9 avenues long.
 Hurdles are of arbitrary height and placement.
 """
 
-
+# This isn't really a valid try     -10
 def main():
     pass
 
