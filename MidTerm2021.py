@@ -41,5 +41,5 @@ else:
 
 if answer !='N' or answer!='H':
     print ('Error! Enter N or H')
-else: 
-   
+else:
+    # No else statement, and you need a while loop -10
