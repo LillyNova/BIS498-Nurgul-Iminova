@@ -38,6 +38,8 @@ def num_word(number):
         else: return num_word(number // k) + ' thousand, ' + num_word(number % k)
     
 amount = input()
+
+# Good, but you need a user prompt for the input    -1
 arr = amount.split('.')
 
 
