@@ -25,3 +25,4 @@ def generate_list(size):
 def generate_array(size):
    l = numpy.random.rand(size)
 
+# You generated functions, but never ran them. -10
