@@ -10,6 +10,7 @@ import pandas as pd
 
 # reading csv file
 
+# No path to data file.  Added project  -5
 wm=pd.read_csv('WMT.csv')
 
 # exploring the data
